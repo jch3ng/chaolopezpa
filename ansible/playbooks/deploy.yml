@@ -9,7 +9,7 @@
 
   roles:
     - geerlingguy.docker
-    - cl.wordpress
+    - chaolopezpa.wordpress
 
   pre_tasks:
     - apt:

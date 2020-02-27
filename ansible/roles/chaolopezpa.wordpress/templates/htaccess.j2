@@ -1,0 +1,7 @@
+Order Deny,Allow
+Deny from all
+
+{% for ip in wordpress_htaccess_whitelist %}
+Allow from {{ ip }}
+{% endfor %}
+

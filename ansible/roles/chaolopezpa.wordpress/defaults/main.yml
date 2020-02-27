@@ -5,3 +5,6 @@ wordpressdb_user: wordpress
 wordpressdb_password: defaultwordpresspassword
 
 wordpress_basedir: /root/docker-wordpress
+
+wordpress_htaccess_whitelist:
+  - 76.226.84.70
