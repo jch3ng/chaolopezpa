@@ -1,2 +1,4 @@
 ansible/roles/geerlingguy*
 terraform/.terraform/*
+.envrc
+ansible/.envrc

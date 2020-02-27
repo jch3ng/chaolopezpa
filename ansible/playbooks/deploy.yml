@@ -1,0 +1,28 @@
+---
+- hosts: web
+  gather_facts: yes
+  become: yes
+
+  vars:
+    docker_tag: latest
+    docker_image: "wordpress:{{ docker_tag }}"
+
+  roles:
+    - geerlingguy.docker
+    - cl.wordpress
+
+  pre_tasks:
+    - apt:
+        update_cache: yes
+
+  tasks:
+    - apt:
+        name: python3-pip 
+        update_cache: yes 
+
+    - pip:
+        name: "{{ item }}"
+      loop:
+        - docker
+        - docker-compose
+
