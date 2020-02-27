@@ -1,0 +1,7 @@
+---
+
+wordpressdb_name: wordpressdb
+wordpressdb_user: wordpress
+wordpressdb_password: defaultwordpresspassword
+
+wordpress_basedir: /root/docker-wordpress

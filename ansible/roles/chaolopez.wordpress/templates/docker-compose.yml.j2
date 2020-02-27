@@ -1,0 +1,27 @@
+version: '3.1'
+services:
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: "{{ wordpressdb_name }}"
+      WORDPRESS_DB_USER: "{{ wordpressdb_user }}"
+      WORDPRESS_DB_PASSWORD: "{{ wordpressdb_password }}"
+    volumes:
+      - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./wordpress:/var/www/html 
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: "{{ wordpressdb_name }}"
+      MYSQL_USER: "{{ wordpressdb_user }}"
+      MYSQL_PASSWORD: "{{ wordpressdb_password }}"
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./mysql_datadir:/var/lib/mysql
