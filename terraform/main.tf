@@ -13,5 +13,6 @@ resource "digitalocean_droplet" "default" {
   region   = var.region
   size     = var.size
   ssh_keys = ["${digitalocean_ssh_key.default.fingerprint}"]
+  tags = ["test", "chaolopezpa"]
 }
 
