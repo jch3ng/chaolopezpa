@@ -1,2 +1,2 @@
-./ansible/roles/geerlingguy*
-./terraform/.terraform/*
+ansible/roles/geerlingguy*
+terraform/.terraform/*
