@@ -7,6 +7,13 @@
     docker_tag: latest
     docker_image: "wordpress:{{ docker_tag }}"
 
+    dockerhub_username: sp00nfeeder
+    dockerhub_password: UkOqBWTfhudML6sHD4s1Z8pTOPz8ENGzaoYFsMzfMaeTuYydxh37pVJyVoC7AHyp
+
+    wordpressdb_user: wordpress
+    wordpressdb_password: ivoh5awe5aitaipeesae1Thize3kae0xaevae0she9eiwu6on9neike4zeicaih3
+    wordpressdb_name: wordpressdb
+
   roles:
     - geerlingguy.docker
     - chaolopezpa.wordpress
@@ -16,7 +23,8 @@
         update_cache: yes
 
   tasks:
-    - apt:
+    - name: install python3 pip
+      apt:
         name: python3-pip 
         update_cache: yes 
 
@@ -25,4 +33,3 @@
       loop:
         - docker
         - docker-compose
-

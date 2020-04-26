@@ -1,6 +1,7 @@
 ---
 
-- file:
+- name: ensure wordpress basedir exists
+  file:
     state: directory
     path: "{{ wordpress_basedir }}"
 
@@ -13,4 +14,4 @@
     mode: 0644
   loop:
       - { src: "docker-compose.yml.j2", dest: "{{ wordpress_basedir }}/docker-compose.yml", owner: root, group: root }
-      - { src: "htaccess.j2", dest: "{{ wordpress_basedir }}/wordpress/.htaccess", owner: www-data, group: www-data }
+       #- { src: "htaccess.j2", dest: "{{ wordpress_basedir }}/wordpress/.htaccess", owner: www-data, group: www-data }
