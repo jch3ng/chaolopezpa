@@ -11,4 +11,4 @@ terraform apply -auto-approve
 # ansible
 cd ../ansible
 source .envrc
-ansible-playbook -i ./inventory/test ./playbooks/deploy.yml
+ansible-playbook -i ./inventory/test ./playbooks/deploy.yml --ask-vault-pass
