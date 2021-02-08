@@ -1,0 +1,16 @@
+---
+
+- name: copy templates
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: 0644
+  vars:
+    nginx_vhost_port: "{{ item.nginx_vhost_port }}"
+    nginx_vhost_server_name: "{{ item.nginx_vhost_server_name }}"
+  loop:
+      - { src: "vhost.j2", dest: "{{ nginx_basedir }}/dev1", nginx_vhost_port: 8000, nginx_vhost_server_name: "dev1.chaolopezpa.com", owner: root, group: root }
+      - { src: "vhost.j2", dest: "{{ nginx_basedir }}/dev2", nginx_vhost_port: 8001, nginx_vhost_server_name: "dev2.chaolopezpa.com", owner: root, group: root }
+
